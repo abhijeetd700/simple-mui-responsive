@@ -9,7 +9,19 @@ import GroupsIcon from '@mui/icons-material/Groups';
 import ArticleIcon from '@mui/icons-material/Article';
 import ModeNightIcon from '@mui/icons-material/ModeNight';
 
-const Sidebar = () => {
+const Sidebar = (props) => {
+
+  const {setMode} = props;
+
+  const handleChange=(e)=>{
+      if(e.target.checked){
+        setMode('dark')
+      }
+      else{
+        setMode('light')
+      }
+  }
+
   return (
     <Box sx={{
         flex:1,
@@ -82,7 +94,7 @@ const Sidebar = () => {
               <ListItemIcon>
                 <ModeNightIcon/>
               </ListItemIcon>
-              <Switch/>
+              <Switch onChange={handleChange}/>
             </ListItemButton>
           </ListItem>
           
